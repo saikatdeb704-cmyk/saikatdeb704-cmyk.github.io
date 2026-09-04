@@ -286,16 +286,29 @@ export default function HeroCanvas() {
       return () => window.removeEventListener("resize", setSize);
     }
 
+    let isVisible = true;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          isVisible = entry.isIntersecting;
+        });
+      },
+      { threshold: 0 }
+    );
+    if (canvas) observer.observe(canvas);
+
     const animate = () => {
-      ctx.clearRect(0, 0, width, height);
-      time += 1;
-      drawGrid(time);
-      shapes.forEach((shape) => {
-        shape.rotation += shape.rotationSpeed;
-        drawShape(shape, time);
-      });
-      updateParticles();
-      drawParticles();
+      if (isVisible) {
+        ctx.clearRect(0, 0, width, height);
+        time += 1;
+        drawGrid(time);
+        shapes.forEach((shape) => {
+          shape.rotation += shape.rotationSpeed;
+          drawShape(shape, time);
+        });
+        updateParticles();
+        drawParticles();
+      }
       animationRef.current = requestAnimationFrame(animate);
     };
 
@@ -304,6 +317,7 @@ export default function HeroCanvas() {
     return () => {
       window.removeEventListener("resize", setSize);
       cancelAnimationFrame(animationRef.current);
+      if (canvas) observer.unobserve(canvas);
     };
   }, []);
 

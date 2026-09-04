@@ -8,7 +8,7 @@ export const SITE_CONFIG = {
   title: "Saikat Deb Sharma — AI/ML Developer & Builder",
   description:
     "Personal portfolio of Saikat Deb Sharma — BTech CSE (AI/ML) student, Python developer, and AI enthusiast building the future with code.",
-  url: "https://saikatdeb.dev",
+  url: "https://saikatdeb704-cmyk.github.io",
   ogImage: "/og-image.png",
 };
 
