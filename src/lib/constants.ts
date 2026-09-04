@@ -14,7 +14,7 @@ export const SITE_CONFIG = {
 
 export const SOCIAL_LINKS = {
   github: "https://github.com/saikatdeb704-cmyk",
-  linkedin: "https://www.linkedin.com/in/saikat-deb-sharma",
+  linkedin: "https://www.linkedin.com/in/saikat-deb-sharma-805059398",
   email: "saikatdeb704@gmail.com",
 };
 
