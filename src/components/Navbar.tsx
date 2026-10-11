@@ -51,9 +51,9 @@ export default function Navbar() {
                 e.preventDefault();
                 handleNavClick("#home");
               }}
-              className="font-mono text-xl lg:text-2xl font-bold text-white tracking-tight hover:text-gray-300 transition-colors"
+              className="font-mono text-base lg:text-lg font-bold text-white tracking-widest hover:text-gray-300 transition-colors uppercase"
             >
-              {/* SD. removed */}
+              SAIKAT DEB SHARMA
             </a>
 
             <div className="hidden lg:flex items-center gap-8">
@@ -62,12 +62,21 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(link.href);
+                    if (link.href.startsWith("#")) {
+                      e.preventDefault();
+                      handleNavClick(link.href);
+                    }
                   }}
-                  className="text-sm text-gray-400 hover:text-white transition-colors duration-300 tracking-wide uppercase"
+                  target={link.href.startsWith("#") ? undefined : "_blank"}
+                  rel={link.href.startsWith("#") ? undefined : "noopener noreferrer"}
+                  download={link.href.endsWith(".pdf")}
+                  className={`text-sm tracking-wide uppercase transition-colors duration-300 ${
+                    link.href.endsWith(".pdf")
+                      ? "text-white border border-white/20 px-3 py-1 hover:bg-white hover:text-black font-mono text-xs"
+                      : "text-gray-400 hover:text-white"
+                  }`}
                 >
-                  {link.label}
+                  {link.label} {link.href.endsWith(".pdf") ? "↓" : ""}
                 </a>
               ))}
             </div>
@@ -123,9 +132,16 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={(e) => {
-                e.preventDefault();
-                handleNavClick(link.href);
+                if (link.href.startsWith("#")) {
+                  e.preventDefault();
+                  handleNavClick(link.href);
+                } else {
+                  setIsMobileOpen(false);
+                }
               }}
+              target={link.href.startsWith("#") ? undefined : "_blank"}
+              rel={link.href.startsWith("#") ? undefined : "noopener noreferrer"}
+              download={link.href.endsWith(".pdf")}
               className={`text-2xl text-white tracking-widest uppercase transition-all duration-500 hover:text-gray-400 ${
                 isMobileOpen
                   ? "opacity-100 translate-y-0"
@@ -133,7 +149,7 @@ export default function Navbar() {
               }`}
               style={{ transitionDelay: `${i * 80 + 200}ms` }}
             >
-              {link.label}
+              {link.label} {link.href.endsWith(".pdf") ? "↓" : ""}
             </a>
           ))}
           <a

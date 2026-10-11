@@ -21,7 +21,7 @@ export default function Footer() {
               Navigation
             </h4>
             <div className="flex flex-col gap-2">
-              {["Home", "About", "Projects", "Contact"].map((link) => (
+              {["Home", "About", "Skills", "Projects", "Journey", "Contact"].map((link) => (
                 <a
                   key={link}
                   href={`#${link.toLowerCase()}`}
@@ -30,6 +30,13 @@ export default function Footer() {
                   {link}
                 </a>
               ))}
+              <a
+                href="/resume.pdf"
+                download
+                className="text-sm text-white/90 hover:text-white font-mono tracking-wider transition-colors duration-300 pt-1"
+              >
+                Resume (PDF) ↓
+              </a>
             </div>
           </div>
 
@@ -60,6 +67,12 @@ export default function Footer() {
                 className="text-sm text-gray-400 hover:text-white transition-colors duration-300"
               >
                 Email
+              </a>
+              <a
+                href={`tel:${SOCIAL_LINKS.phone}`}
+                className="text-sm text-gray-500 hover:text-white transition-colors duration-300 font-mono"
+              >
+                {SOCIAL_LINKS.phone}
               </a>
             </div>
           </div>

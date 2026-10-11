@@ -39,6 +39,21 @@ export default function About() {
                     {para}
                   </p>
                 ))}
+
+                {/* Education highlight from Resume */}
+                <div className="p-4 border border-white/10 bg-white/[0.02] flex flex-col sm:flex-row sm:items-center justify-between gap-3 mt-6">
+                  <div>
+                    <span className="font-mono text-[11px] text-gray-500 uppercase tracking-widest block mb-1">
+                      EDUCATION
+                    </span>
+                    <span className="text-sm sm:text-base text-white font-medium">
+                      B.Tech in Computer Science & Engineering (AI & ML)
+                    </span>
+                  </div>
+                  <span className="self-start sm:self-center font-mono text-xs text-gray-400 border border-white/15 px-3 py-1">
+                    2nd Year Student
+                  </span>
+                </div>
               </div>
             </AnimatedSection>
 

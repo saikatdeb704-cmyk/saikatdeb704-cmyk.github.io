@@ -1,6 +1,6 @@
 "use client";
 
-import { SKILLS_DATA } from "@/lib/constants";
+import { SKILLS_DATA, COURSEWORK_DATA } from "@/lib/constants";
 import AnimatedSection from "./AnimatedSection";
 
 export default function Skills() {
@@ -49,6 +49,23 @@ export default function Skills() {
             </AnimatedSection>
           ))}
         </div>
+
+        {/* Relevant Coursework from Resume */}
+        <AnimatedSection delay={500} className="mt-12 pt-10 border-t border-white/5">
+          <p className="font-mono text-xs text-gray-500 tracking-widest uppercase mb-4">
+            RELEVANT COURSEWORK &amp; AREAS OF INTEREST
+          </p>
+          <div className="flex flex-wrap gap-2.5">
+            {COURSEWORK_DATA.map((course) => (
+              <span
+                key={course}
+                className="text-xs font-mono text-gray-400 border border-white/10 px-3.5 py-1.5 bg-white/[0.02]"
+              >
+                {course}
+              </span>
+            ))}
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );

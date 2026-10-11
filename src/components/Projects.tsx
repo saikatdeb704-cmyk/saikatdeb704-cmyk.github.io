@@ -111,8 +111,8 @@ export default function Projects() {
           </button>
         </AnimatedSection>
 
-        {/* Other projects (3-column grid) */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Other projects (2-column grid) */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
           {PROJECTS_DATA.slice(1).map((project, i) => (
             <AnimatedSection key={project.id} delay={(i + 1) * 100}>
               <button

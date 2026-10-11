@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SITE_CONFIG } from "@/lib/constants";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,23 +14,29 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Saikat Deb Sharma — AI/ML Developer & Builder",
+  metadataBase: new URL(SITE_CONFIG.url),
+  title: "Saikat Deb Sharma — Computer Science (AI & ML) | Web Developer",
   description:
-    "Personal portfolio of Saikat Deb Sharma — BTech CSE (AI/ML) student, Python developer, and AI enthusiast building the future with code.",
+    "2nd-year B.Tech CSE (AI & ML) student and Web Developer with hands-on experience building production-quality Android and React applications with Gemini AI integrations.",
   keywords: [
     "Saikat Deb Sharma",
-    "AI Developer",
-    "Machine Learning",
-    "Python Developer",
-    "Portfolio",
+    "Web Developer",
+    "Android Developer",
+    "Kotlin",
+    "React 19",
+    "Jetpack Compose",
+    "Gemini AI",
+    "TypeScript",
+    "Python",
     "BTech CSE",
-    "Full Stack Developer",
+    "Portfolio",
+    "Kalyani India",
   ],
   authors: [{ name: "Saikat Deb Sharma" }],
   openGraph: {
-    title: "Saikat Deb Sharma — AI/ML Developer & Builder",
+    title: "Saikat Deb Sharma — Computer Science (AI & ML) | Web Developer",
     description:
-      "Personal portfolio of Saikat Deb Sharma — BTech CSE (AI/ML) student, Python developer, and AI enthusiast building the future with code.",
+      "2nd-year B.Tech CSE (AI & ML) student and Web Developer with hands-on experience building production-quality Android and React applications with Gemini AI integrations.",
     siteName: "Saikat Deb Sharma",
     images: [
       {
@@ -43,9 +50,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Saikat Deb Sharma — AI/ML Developer & Builder",
+    title: "Saikat Deb Sharma — Computer Science (AI & ML) | Web Developer",
     description:
-      "BTech CSE (AI/ML) student passionate about building with code, exploring AI, and creating the future.",
+      "2nd-year B.Tech CSE (AI & ML) student and Web Developer building production-quality Android and React applications with Gemini AI.",
   },
   robots: {
     index: true,

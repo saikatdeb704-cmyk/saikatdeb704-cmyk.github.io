@@ -48,9 +48,16 @@ export default function Contact() {
         </AnimatedSection>
 
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-          {/* Left: Links */}
+          {/* Left: Links & Quick Info */}
           <AnimatedSection delay={100}>
             <div className="flex flex-col gap-4">
+              <MagneticButton
+                href="/resume.pdf"
+                download
+                className="border border-white text-white px-8 py-4 text-sm tracking-widest hover:bg-white hover:text-black justify-center lg:justify-start w-full sm:w-auto font-medium"
+              >
+                DOWNLOAD RESUME ↓
+              </MagneticButton>
               <MagneticButton
                 href={`mailto:${SOCIAL_LINKS.email}`}
                 className="border border-white/20 text-white px-8 py-4 text-sm tracking-widest hover:bg-white hover:text-black justify-center lg:justify-start w-full sm:w-auto"
@@ -69,6 +76,38 @@ export default function Contact() {
               >
                 LINKEDIN ↗
               </MagneticButton>
+            </div>
+
+            {/* Quick Details from Resume */}
+            <div className="mt-12 pt-8 border-t border-white/10 space-y-4">
+              <div className="flex items-center gap-4 text-sm text-gray-400">
+                <span className="font-mono text-xs text-gray-600 uppercase tracking-widest w-20">
+                  PHONE
+                </span>
+                <a
+                  href={`tel:${SOCIAL_LINKS.phone}`}
+                  className="hover:text-white transition-colors font-mono"
+                >
+                  {SOCIAL_LINKS.phone}
+                </a>
+              </div>
+              <div className="flex items-center gap-4 text-sm text-gray-400">
+                <span className="font-mono text-xs text-gray-600 uppercase tracking-widest w-20">
+                  LOCATION
+                </span>
+                <span className="text-gray-300 font-mono">
+                  {SOCIAL_LINKS.location}
+                </span>
+              </div>
+              <div className="flex items-center gap-4 text-sm text-gray-400">
+                <span className="font-mono text-xs text-gray-600 uppercase tracking-widest w-20">
+                  STATUS
+                </span>
+                <span className="text-green-400 font-mono flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                  Available for Internships & Projects
+                </span>
+              </div>
             </div>
           </AnimatedSection>
 

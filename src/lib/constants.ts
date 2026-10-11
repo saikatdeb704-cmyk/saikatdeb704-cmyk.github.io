@@ -1,13 +1,13 @@
 // ============================================================
-// PORTFOLIO DATA — Edit this file to update all website content
+// PORTFOLIO DATA — Sourced from Saikat Deb Sharma's Resume
 // ============================================================
 
 export const SITE_CONFIG = {
   name: "Saikat Deb Sharma",
-  initials: "SD",
-  title: "Saikat Deb Sharma — AI/ML Developer & Builder",
+  initials: "SDS",
+  title: "Saikat Deb Sharma — Computer Science (AI & ML) | Web Developer",
   description:
-    "Personal portfolio of Saikat Deb Sharma — BTech CSE (AI/ML) student, Python developer, and AI enthusiast building the future with code.",
+    "2nd-year B.Tech CSE (AI & ML) student and Web Developer with hands-on experience building production-quality Android and React applications with Gemini AI integrations.",
   url: "https://saikatdeb704-cmyk.github.io",
   ogImage: "/og-image.png",
 };
@@ -16,6 +16,9 @@ export const SOCIAL_LINKS = {
   github: "https://github.com/saikatdeb704-cmyk",
   linkedin: "https://www.linkedin.com/in/saikat-deb-sharma-805059398/",
   email: "saikatdeb704@gmail.com",
+  phone: "(+91) 6295096193",
+  location: "Kalyani, India",
+  resume: "/resume.pdf",
 };
 
 export const NAV_LINKS = [
@@ -25,14 +28,15 @@ export const NAV_LINKS = [
   { label: "Projects", href: "#projects" },
   { label: "Journey", href: "#journey" },
   { label: "Contact", href: "#contact" },
+  { label: "Resume", href: "/resume.pdf", isExternal: true },
 ];
 
 export const HERO_DATA = {
   name: "SAIKAT DEB SHARMA",
-  headline: ["BUILDING WITH CODE.", "EXPLORING AI.", "CREATING THE FUTURE."],
-  subtitle: "BTech CSE (AI/ML) Student • Python Developer • AI Enthusiast",
+  headline: ["BUILDING WITH CODE.", "INTEGRATING AI.", "CREATING THE FUTURE."],
+  subtitle: "B.Tech CSE (AI & ML) • Web & Android Developer",
   intro:
-    "I'm a Computer Science student passionate about Artificial Intelligence, Machine Learning, software development, and building useful digital products.",
+    "Motivated 2nd-year B.Tech CSE (AI & ML) student and aspiring Web Developer with hands-on experience building production-quality Android and React applications. Proficient in Kotlin/Jetpack Compose, React/TypeScript, and Gemini AI integration.",
   cta: {
     primary: { label: "VIEW MY WORK →", href: "#projects" },
     secondary: { label: "DOWNLOAD RESUME ↓", href: "/resume.pdf" },
@@ -41,220 +45,252 @@ export const HERO_DATA = {
 
 export const ABOUT_DATA = {
   statement: [
-    "CURIOUS ABOUT HOW",
-    "TECHNOLOGY WORKS.",
-    "OBSESSED WITH BUILDING.",
+    "CRAFTING INTUITIVE EXPERIENCES.",
+    "INTEGRATING GEMINI AI.",
+    "BUILDING PRODUCTION APPS.",
   ],
   bio: [
-    "Hi, I'm Saikat. I'm a BTech CSE student specializing in Artificial Intelligence & Machine Learning. I'm passionate about understanding how AI works and turning ideas into practical applications.",
-    "I enjoy programming, experimenting with AI tools, developing web applications, and participating in technology projects and hackathons.",
-    "My goal is to continuously improve my technical skills and eventually build meaningful products powered by technology and AI.",
+    "Motivated 2nd-year B.Tech CSE (AI & ML) student and aspiring Web Developer based in Kalyani, India, with hands-on experience building production-quality Android and React applications.",
+    "Proficient across Kotlin/Jetpack Compose and React/TypeScript ecosystems. Passionate about crafting intuitive user experiences with modern UI frameworks, integrating AI-powered features via Gemini AI, and writing clean, maintainable code.",
+    "Eager to contribute to practical, high-impact projects and continuously strengthen technical problem-solving in the software engineering industry.",
   ],
   principles: [
     { number: "01", label: "LEARN" },
     { number: "02", label: "BUILD" },
     { number: "03", label: "EXPERIMENT" },
-    { number: "04", label: "IMPROVE" },
+    { number: "04", label: "DELIVER" },
   ],
 };
 
 export const SKILLS_DATA = {
-  heading: "TECH STACK",
-  subheading: "Tools, technologies and concepts I'm currently working with.",
+  heading: "TECHNICAL SKILLS",
+  subheading: "Technologies, frameworks, and tools from my production and academic projects.",
   categories: [
     {
-      title: "Programming",
-      skills: ["Python", "C", "JavaScript", "HTML", "CSS"],
-    },
-    {
-      title: "AI / ML",
+      title: "Programming Languages",
       skills: [
-        "Artificial Intelligence",
-        "Machine Learning",
-        "Generative AI",
-        "AI Tools",
-        "Prompt Engineering",
+        "Python",
+        "Java",
+        "C",
+        "Kotlin",
+        "TypeScript",
+        "JavaScript",
+        "HTML5",
+        "CSS3",
       ],
     },
     {
-      title: "Development",
-      skills: ["Web Development", "Next.js", "React", "Git", "GitHub"],
+      title: "Frameworks & Libraries",
+      skills: [
+        "React 19",
+        "Jetpack Compose",
+        "Material Design 3",
+        "Tailwind CSS",
+        "Framer Motion",
+      ],
     },
     {
-      title: "Tools",
-      skills: ["Google AI Studio", "ChatGPT", "VS Code", "GitHub"],
+      title: "Tools & Platforms",
+      skills: [
+        "Vite",
+        "Node.js",
+        "Firebase",
+        "Git / GitHub",
+        "Android Studio",
+        "Express.js",
+      ],
+    },
+    {
+      title: "APIs & Data",
+      skills: [
+        "Gemini AI SDK",
+        "REST APIs",
+        "Room DB",
+        "Retrofit",
+        "OkHttp",
+      ],
     },
   ],
 };
 
 export const PROJECTS_DATA = [
   {
-    id: "project-manager",
+    id: "scholar-ai",
     number: "01",
-    title: "Project Manager Web App",
+    title: "ScholarAI — AI-Powered Research Knowledge Manager",
     description:
-      "An AI-powered project management web application designed to organize tasks, priorities, deadlines, and assignments.",
+      "An academic research management platform featuring an intelligent inbox for paper triage, topic tracking dashboards, interactive SVG knowledge graphs, and an integrated AI research assistant to extract key concepts and summaries.",
     features: [
-      "Task creation",
-      "Priority tagging",
-      "Deadline tracking",
-      "Work assignment",
-      "AI-assisted workflow",
+      "Intelligent inbox for paper triage",
+      "Topic tracking dashboards",
+      "Interactive SVG-based knowledge graphs",
+      "Integrated Gemini AI research assistant",
+      "Automated key concept & summary extraction",
     ],
-    tags: ["AI", "Web App", "Project Management"],
-    liveUrl: "#",
-    sourceUrl: "#",
+    tags: ["React 19", "TypeScript", "Vite", "Tailwind CSS 4", "Gemini AI SDK"],
+    liveUrl: "https://github.com/saikatdeb704-cmyk",
+    sourceUrl: "https://github.com/saikatdeb704-cmyk",
     details: {
       overview:
-        "A comprehensive project management tool that leverages AI to streamline task organization and team workflow.",
+        "Built an academic research management platform using React 19, TypeScript, Vite, Tailwind CSS 4, and the Gemini AI SDK. Designed to streamline how researchers and students organize, analyze, and synthesize scholarly literature.",
       problem:
-        "Traditional project management tools lack intelligent task prioritization and workflow suggestions.",
+        "Researchers face massive cognitive overload triaging academic papers, managing disparate reading queues, and connecting conceptual nodes across complex studies.",
       solution:
-        "Built an AI-powered web app that automatically suggests task priorities, deadlines, and optimal work assignments based on project context.",
-      technologies: ["Python", "React", "Next.js", "AI APIs"],
+        "Engineered an all-in-one web platform with an automated triage inbox, topic progress dashboards, interactive SVG knowledge visualizers, and a context-aware Gemini AI assistant.",
+      technologies: [
+        "React 19",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS 4",
+        "Gemini AI SDK",
+      ],
     },
   },
   {
-    id: "skillgap-ai",
+    id: "mock-interview-platform",
     number: "02",
-    title: "SkillGap AI",
+    title: "AI-Powered Mock Interview Platform",
     description:
-      "An AI-powered concept designed to identify the gap between a student's current skills and the skills required for a target career.",
+      "An interactive technical interview simulator featuring real-time conversational AI that generates role-specific interview questions, analyzes responses, and provides detailed critique on communication and technical accuracy.",
     features: [
-      "Skill assessment",
-      "Career matching",
-      "Gap analysis",
-      "Learning path suggestions",
+      "Real-time conversational AI interviewer",
+      "Role-specific dynamic question generation",
+      "Instant response evaluation & scoring",
+      "Communication & technical accuracy feedback",
+      "Contextual state management & prompt engineering",
     ],
-    tags: ["AI", "Career", "Machine Learning"],
-    liveUrl: null,
-    sourceUrl: null,
+    tags: ["React", "TypeScript", "Tailwind CSS", "Gemini AI SDK"],
+    liveUrl: "https://github.com/saikatdeb704-cmyk",
+    sourceUrl: "https://github.com/saikatdeb704-cmyk",
     details: {
       overview:
-        "A smart career guidance tool that maps student skills against industry requirements.",
+        "Developed an interactive technical interview simulator using React, TypeScript, Tailwind CSS, and the Gemini AI SDK for realistic candidate preparation.",
       problem:
-        "Students often don't know what skills they need to develop for their dream careers.",
+        "Job seekers rarely have access to realistic technical interview practice with personalized, actionable feedback on their answers and communication style.",
       solution:
-        "An AI system that analyzes current skills, compares with target career requirements, and suggests personalized learning paths.",
-      technologies: ["Python", "Machine Learning", "NLP"],
+        "Implemented robust state management for conversational context along with prompt engineering to deliver realistic AI interviewers that dynamically adapt to the user's answers.",
+      technologies: [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Gemini AI SDK",
+      ],
     },
   },
   {
-    id: "lipread-live",
+    id: "personal-task-manager",
     number: "03",
-    title: "LipRead Live",
+    title: "Personal Task Manager (Android App)",
     description:
-      "A concept focused on silent speech recognition and accessibility using AI.",
+      "A full-featured, production-grade Android task management application built with Kotlin, Jetpack Compose, Material Design 3, Room DB, and Firebase for offline-first productivity.",
     features: [
-      "Real-time lip reading",
-      "Speech-to-text conversion",
-      "Accessibility features",
-      "Computer vision pipeline",
+      "Complete CRUD workflows",
+      "Intelligent recurring-task scheduling",
+      "Advanced filtering and multi-sort criteria",
+      "Room DB persistent local storage",
+      "Real-time analytics and progress dashboards",
     ],
-    tags: ["AI", "Accessibility", "Computer Vision"],
-    liveUrl: null,
-    sourceUrl: null,
+    tags: ["Kotlin", "Jetpack Compose", "Material Design 3", "Room DB", "Firebase"],
+    liveUrl: "https://github.com/saikatdeb704-cmyk",
+    sourceUrl: "https://github.com/saikatdeb704-cmyk",
     details: {
       overview:
-        "An accessibility-focused AI tool that reads lip movements to generate text in real-time.",
+        "Developed a full-featured, production-grade Android task management application using Kotlin, Jetpack Compose, Material Design 3, Room DB, and Firebase.",
       problem:
-        "People with hearing impairments face communication barriers in environments without sign language support.",
+        "Mobile users need task managers that work completely offline without losing sync, with flexible recurring intervals and clear visual analytics of their habits.",
       solution:
-        "A computer vision system that interprets lip movements and converts them to text, enabling silent communication.",
-      technologies: ["Python", "Computer Vision", "Deep Learning", "OpenCV"],
-    },
-  },
-  {
-    id: "research-inbox",
-    number: "04",
-    title: "Personal Research Inbox",
-    description:
-      "A productivity concept for collecting papers, articles, videos, repositories, and other research material in one organized workspace.",
-    features: [
-      "Content aggregation",
-      "Smart categorization",
-      "Search & filtering",
-      "Reading queue",
-    ],
-    tags: ["AI", "Productivity", "Research"],
-    liveUrl: null,
-    sourceUrl: null,
-    details: {
-      overview:
-        "A unified workspace for organizing and managing research materials from multiple sources.",
-      problem:
-        "Research materials are scattered across bookmarks, tabs, downloads, and different platforms.",
-      solution:
-        "A centralized inbox that collects, categorizes, and organizes research content with AI-powered tagging.",
-      technologies: ["React", "Next.js", "AI APIs", "Web Scraping"],
+        "Architected an offline-first Android application leveraging Room DB for local persistence, Jetpack Compose for reactive UI, and Firebase for cloud backup and analytics.",
+      technologies: [
+        "Kotlin",
+        "Jetpack Compose",
+        "Material Design 3",
+        "Room DB",
+        "Firebase",
+        "Android Studio",
+      ],
     },
   },
 ];
 
 export const JOURNEY_DATA = [
   {
-    year: "2025",
-    title: "START",
+    year: "2024",
+    title: "FOUNDATION",
     description:
-      "Started my BTech journey in Computer Science & Engineering with AI/ML.",
+      "Commenced B.Tech in Computer Science & Engineering (AI & ML). Built core foundations in C, Python, Data Structures & Algorithms.",
+  },
+  {
+    year: "2025",
+    title: "EXPANSION",
+    description:
+      "Mastered Kotlin, Jetpack Compose, and modern React/TypeScript development. Built production Android apps and web platforms with Gemini AI SDK.",
   },
   {
     year: "2026",
-    title: "EXPLORE",
+    title: "BUILD & ACCELERATE",
     description:
-      "Started building projects, learning programming, experimenting with AI tools, and participating in hackathons.",
+      "Current 2nd-year focus: Advanced full-stack systems, mobile engineering, AI agent integrations, and industry-ready open-source projects.",
   },
   {
     year: "2027",
-    title: "BUILD",
+    title: "INTERNSHIPS & SCALE",
     description:
-      "Focus on DSA, Machine Learning, full-stack development, and serious projects.",
+      "Targeting software engineering internships, distributed backend architectures, and deep AI/ML research contributions.",
   },
   {
     year: "2028",
-    title: "LEVEL UP",
+    title: "GRADUATION & IMPACT",
     description:
-      "Internships, advanced AI/ML projects, open-source contributions, and competitive hackathons.",
-  },
-  {
-    year: "2029",
-    title: "NEXT CHAPTER",
-    description:
-      "Prepare for professional opportunities in AI/ML and software development.",
+      "Graduating B.Tech CSE (AI & ML) and stepping into professional software engineering and product innovation.",
   },
 ];
 
 export const LEARNING_DATA = [
-  "Python",
-  "DSA",
+  "React 19",
+  "Jetpack Compose",
+  "Gemini AI SDK",
+  "Kotlin",
+  "TypeScript",
+  "Room DB",
+  "Data Structures & Algorithms",
+  "Object-Oriented Programming",
+  "Database Management Systems",
+  "Computer Networks",
+  "Operating Systems",
+  "Full-Stack Web Development",
+];
+
+export const COURSEWORK_DATA = [
+  "Data Structures & Algorithms",
+  "Object-Oriented Programming",
+  "Database Management Systems",
+  "Web Development",
+  "Artificial Intelligence",
   "Machine Learning",
-  "Deep Learning",
-  "Full-Stack Development",
-  "Generative AI",
-  "System Design",
-  "Open Source",
+  "Operating Systems",
+  "Computer Networks",
 ];
 
 export const ACHIEVEMENTS_DATA = [
   {
-    title: "AI Tools Workshop",
-    org: "Be10x",
-    icon: "workshop",
+    title: "ScholarAI Platform",
+    org: "Production Web App",
+    icon: "projects",
   },
   {
-    title: "ChatGPT Certification",
-    org: "Be10x",
-    icon: "certificate",
+    title: "Android Task Manager",
+    org: "Production Jetpack Compose App",
+    icon: "projects",
   },
   {
-    title: "Hackathon Projects",
-    org: "Various Events",
+    title: "AI Interview Simulator",
+    org: "Gemini AI Hack & Build",
     icon: "hackathon",
   },
   {
-    title: "Personal AI/Web Projects",
-    org: "Self-Built",
-    icon: "projects",
+    title: "B.Tech CSE (AI & ML)",
+    org: "2nd Year Undergraduate",
+    icon: "certificate",
   },
 ];
 
@@ -270,5 +306,6 @@ export const GITHUB_DATA = {
 export const CONTACT_DATA = {
   heading: ["HAVE AN IDEA?", "LET'S BUILD IT."],
   subtitle:
-    "I'm always interested in learning, collaborating, experimenting, and building interesting things.",
+    "2nd-year B.Tech CSE (AI & ML) student based in Kalyani, India. Available for software internships, project collaborations, and discussions.",
 };
+
