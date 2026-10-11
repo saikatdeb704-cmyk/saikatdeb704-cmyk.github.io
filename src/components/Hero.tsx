@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050505]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050505] pt-24 lg:pt-28 pb-16"
     >
       <HeroCanvas />
 
@@ -16,10 +16,10 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent z-[1]" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]/50 z-[1]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full py-32 lg:py-0">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full py-10 lg:py-16">
         <div className="max-w-3xl">
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[0.95] tracking-tight mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[0.98] tracking-tight mb-8">
             {HERO_DATA.headline.map((line, i) => (
               <span
                 key={i}
