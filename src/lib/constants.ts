@@ -214,32 +214,32 @@ export const PROJECTS_DATA = [
 
 export const JOURNEY_DATA = [
   {
-    year: "2024",
-    title: "FOUNDATION",
-    description:
-      "Commenced B.Tech in Computer Science & Engineering (AI & ML). Built core foundations in C, Python, Data Structures & Algorithms.",
-  },
-  {
     year: "2025",
-    title: "EXPANSION",
+    title: "START & FOUNDATION",
     description:
-      "Mastered Kotlin, Jetpack Compose, and modern React/TypeScript development. Built production Android apps and web platforms with Gemini AI SDK.",
+      "Started B.Tech journey in Computer Science & Engineering (AI & ML). Built core foundations in C, Python, and Data Structures & Algorithms.",
   },
   {
     year: "2026",
-    title: "BUILD & ACCELERATE",
+    title: "BUILD & EXPLORE",
     description:
-      "Current 2nd-year focus: Advanced full-stack systems, mobile engineering, AI agent integrations, and industry-ready open-source projects.",
+      "Current 2nd-year focus: Building production Android apps (Kotlin, Jetpack Compose) and modern React 19/TypeScript platforms with Gemini AI SDK integrations.",
   },
   {
     year: "2027",
-    title: "INTERNSHIPS & SCALE",
+    title: "DEEPEN & SPECIALIZE",
     description:
-      "Targeting software engineering internships, distributed backend architectures, and deep AI/ML research contributions.",
+      "Focus on advanced full-stack systems, machine learning pipelines, scalable architectures, and competitive hackathons.",
   },
   {
     year: "2028",
-    title: "GRADUATION & IMPACT",
+    title: "INTERNSHIPS & LEVEL UP",
+    description:
+      "Targeting software engineering internships, industry collaboration, open-source contributions, and high-impact distributed systems.",
+  },
+  {
+    year: "2029",
+    title: "GRADUATION & NEXT CHAPTER",
     description:
       "Graduating B.Tech CSE (AI & ML) and stepping into professional software engineering and product innovation.",
   },

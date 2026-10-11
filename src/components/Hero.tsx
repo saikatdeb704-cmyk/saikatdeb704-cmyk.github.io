@@ -18,11 +18,6 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full py-32 lg:py-0">
         <div className="max-w-3xl">
-          {/* Name label */}
-          <p className="font-mono text-sm lg:text-base text-gray-500 tracking-[0.3em] mb-6 uppercase animate-fade-in">
-            {HERO_DATA.name}
-          </p>
-
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[0.95] tracking-tight mb-8">
             {HERO_DATA.headline.map((line, i) => (
