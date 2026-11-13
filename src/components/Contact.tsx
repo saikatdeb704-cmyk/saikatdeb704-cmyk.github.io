@@ -1,197 +1,63 @@
-"use client";
-
-import { useState, type FormEvent } from "react";
 import { CONTACT_DATA, SOCIAL_LINKS } from "@/lib/constants";
-import AnimatedSection from "./AnimatedSection";
-import MagneticButton from "./MagneticButton";
 
 export default function Contact() {
-  const [formState, setFormState] = useState<"idle" | "sending" | "success">(
-    "idle"
-  );
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    setFormState("sending");
-
-    // Simulate submission
-    setTimeout(() => {
-      setFormState("success");
-      setFormData({ name: "", email: "", message: "" });
-      setTimeout(() => setFormState("idle"), 4000);
-    }, 1500);
-  };
-
   return (
-    <section id="contact" className="py-32 lg:py-40 bg-[#0a0a0a] relative">
-      {/* Subtle top gradient */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Large heading */}
-        <AnimatedSection>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white tracking-tight leading-[0.95] mb-8">
-            {CONTACT_DATA.heading.map((line, i) => (
-              <span key={i} className="block">
-                {line}
-              </span>
-            ))}
+    <section id="contact" className="section-block">
+      <div className="glass-panel contact-panel reveal">
+        <div style={{ maxWidth: "54ch" }}>
+          <span
+            className="mono"
+            style={{ fontSize: "0.76rem", color: "var(--accent)" }}
+          >
+            {CONTACT_DATA.kicker}
+          </span>
+          <h2
+            style={{
+              fontSize: "clamp(1.4rem, 2.5vw, 1.9rem)",
+              margin: "6px 0 8px",
+            }}
+          >
+            {CONTACT_DATA.heading}
           </h2>
-          <p className="text-gray-400 text-base lg:text-lg max-w-xl mb-12">
+          <p style={{ color: "var(--text-secondary)", fontSize: "0.94rem" }}>
             {CONTACT_DATA.subtitle}
           </p>
-        </AnimatedSection>
+        </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-          {/* Left: Links & Quick Info */}
-          <AnimatedSection delay={100}>
-            <div className="flex flex-col gap-4">
-              <MagneticButton
-                href="/resume.pdf"
-                download
-                className="border border-white text-white px-8 py-4 text-sm tracking-widest hover:bg-white hover:text-black justify-center lg:justify-start w-full sm:w-auto font-medium"
-              >
-                DOWNLOAD RESUME ↓
-              </MagneticButton>
-              <MagneticButton
-                href={`mailto:${SOCIAL_LINKS.email}`}
-                className="border border-white/20 text-white px-8 py-4 text-sm tracking-widest hover:bg-white hover:text-black justify-center lg:justify-start w-full sm:w-auto"
-              >
-                EMAIL ME ↗
-              </MagneticButton>
-              <MagneticButton
-                href={SOCIAL_LINKS.github}
-                className="border border-white/10 text-gray-400 px-8 py-4 text-sm tracking-widest hover:border-white/30 hover:text-white justify-center lg:justify-start w-full sm:w-auto"
-              >
-                GITHUB ↗
-              </MagneticButton>
-              <MagneticButton
-                href={SOCIAL_LINKS.linkedin}
-                className="border border-white/10 text-gray-400 px-8 py-4 text-sm tracking-widest hover:border-white/30 hover:text-white justify-center lg:justify-start w-full sm:w-auto"
-              >
-                LINKEDIN ↗
-              </MagneticButton>
-            </div>
-
-            {/* Quick Details from Resume */}
-            <div className="mt-12 pt-8 border-t border-white/10 space-y-4">
-              <div className="flex items-center gap-4 text-sm text-gray-400">
-                <span className="font-mono text-xs text-gray-600 uppercase tracking-widest w-20">
-                  PHONE
-                </span>
-                <a
-                  href={`tel:${SOCIAL_LINKS.phone}`}
-                  className="hover:text-white transition-colors font-mono"
-                >
-                  {SOCIAL_LINKS.phone}
-                </a>
-              </div>
-              <div className="flex items-center gap-4 text-sm text-gray-400">
-                <span className="font-mono text-xs text-gray-600 uppercase tracking-widest w-20">
-                  LOCATION
-                </span>
-                <span className="text-gray-300 font-mono">
-                  {SOCIAL_LINKS.location}
-                </span>
-              </div>
-              <div className="flex items-center gap-4 text-sm text-gray-400">
-                <span className="font-mono text-xs text-gray-600 uppercase tracking-widest w-20">
-                  STATUS
-                </span>
-                <span className="text-green-400 font-mono flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                  Available for Internships & Projects
-                </span>
-              </div>
-            </div>
-          </AnimatedSection>
-
-          {/* Right: Contact Form */}
-          <AnimatedSection delay={200}>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label
-                  htmlFor="contact-name"
-                  className="block text-xs font-mono text-gray-500 tracking-widest uppercase mb-2"
-                >
-                  Name
-                </label>
-                <input
-                  id="contact-name"
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  className="w-full bg-transparent border border-white/10 px-4 py-3 text-white text-sm focus:border-white/30 focus:outline-none transition-colors duration-300 placeholder:text-gray-700"
-                  placeholder="Your name"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="contact-email"
-                  className="block text-xs font-mono text-gray-500 tracking-widest uppercase mb-2"
-                >
-                  Email
-                </label>
-                <input
-                  id="contact-email"
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  className="w-full bg-transparent border border-white/10 px-4 py-3 text-white text-sm focus:border-white/30 focus:outline-none transition-colors duration-300 placeholder:text-gray-700"
-                  placeholder="your@email.com"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="contact-message"
-                  className="block text-xs font-mono text-gray-500 tracking-widest uppercase mb-2"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="contact-message"
-                  required
-                  rows={5}
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
-                  className="w-full bg-transparent border border-white/10 px-4 py-3 text-white text-sm focus:border-white/30 focus:outline-none transition-colors duration-300 resize-none placeholder:text-gray-700"
-                  placeholder="Tell me about your idea..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={formState !== "idle"}
-                className="w-full border border-white text-white px-8 py-4 text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {formState === "idle" && "SEND MESSAGE"}
-                {formState === "sending" && "SENDING..."}
-                {formState === "success" && "✓ MESSAGE SENT"}
-              </button>
-
-              {/* Success message */}
-              {formState === "success" && (
-                <p className="text-center text-sm text-gray-400 animate-fade-in">
-                  Thanks! I&apos;ll get back to you soon.
-                </p>
-              )}
-            </form>
-          </AnimatedSection>
+        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+          <a href={`mailto:${SOCIAL_LINKS.email}`} className="btn-solid">
+            {SOCIAL_LINKS.email}
+          </a>
+          <a
+            href={SOCIAL_LINKS.resume}
+            download="Saikat_Deb_Sharma_Resume.pdf"
+            className="btn-outline"
+          >
+            Resume PDF ↓
+          </a>
+          <a
+            href={SOCIAL_LINKS.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-outline"
+          >
+            GitHub ↗
+          </a>
+          <a
+            href={SOCIAL_LINKS.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-outline"
+          >
+            LinkedIn ↗
+          </a>
+          <a
+            href={`tel:${SOCIAL_LINKS.phoneHref}`}
+            className="btn-outline mono"
+            style={{ fontSize: "0.82rem" }}
+          >
+            {SOCIAL_LINKS.phone}
+          </a>
         </div>
       </div>
     </section>

@@ -1,13 +1,49 @@
 // ============================================================
-// PORTFOLIO DATA — Sourced from Saikat Deb Sharma's Resume
+// PORTFOLIO DATA — Saikat Deb Sharma
 // ============================================================
+
+export type ThemeId = "obsidian" | "graphite" | "sage" | "paper";
+
+export interface ThemeOption {
+  id: ThemeId;
+  label: string;
+  hint: "Dark" | "Light";
+  swatch: string;
+}
+
+export const THEMES: ThemeOption[] = [
+  {
+    id: "obsidian",
+    label: "Obsidian & Ice",
+    hint: "Dark",
+    swatch: "linear-gradient(135deg, #09090b, #38bdf8)",
+  },
+  {
+    id: "graphite",
+    label: "Graphite & Amber",
+    hint: "Dark",
+    swatch: "linear-gradient(135deg, #0c0a09, #f59e0b)",
+  },
+  {
+    id: "sage",
+    label: "Midnight & Sage",
+    hint: "Dark",
+    swatch: "linear-gradient(135deg, #050a08, #34d399)",
+  },
+  {
+    id: "paper",
+    label: "Editorial Paper",
+    hint: "Light",
+    swatch: "linear-gradient(135deg, #f4f4f5, #2563eb)",
+  },
+];
 
 export const SITE_CONFIG = {
   name: "Saikat Deb Sharma",
   initials: "SDS",
-  title: "Saikat Deb Sharma — Computer Science (AI & ML) | Web Developer",
+  title: "Saikat Deb Sharma — CSE (AI & ML) · Web & Android Developer",
   description:
-    "2nd-year B.Tech CSE (AI & ML) student and Web Developer with hands-on experience building production-quality Android and React applications with Gemini AI integrations.",
+    "Saikat Deb Sharma is a 2nd-year B.Tech CSE (AI & ML) student building production-quality React, Android (Kotlin/Jetpack Compose), and Gemini AI applications.",
   url: "https://saikatdeb704-cmyk.github.io",
   ogImage: "/og-image.png",
 };
@@ -17,247 +53,211 @@ export const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/in/saikat-deb-sharma-805059398/",
   email: "saikatdeb704@gmail.com",
   phone: "(+91) 6295096193",
-  location: "Kalyani, India",
+  phoneHref: "+916295096193",
+  location: "Kalyani, IN (Remote OK)",
   resume: "/resume.pdf",
 };
 
 export const NAV_LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
+  { label: "Work", href: "#work" },
   { label: "Journey", href: "#journey" },
   { label: "Contact", href: "#contact" },
-  { label: "Resume", href: "/resume.pdf", isExternal: true },
 ];
 
 export const HERO_DATA = {
-  name: "SAIKAT DEB SHARMA",
-  headline: ["BUILDING WITH CODE.", "INTEGRATING AI.", "CREATING THE FUTURE."],
-  subtitle: "B.Tech CSE (AI & ML) • Web & Android Developer",
-  intro:
-    "Motivated 2nd-year B.Tech CSE (AI & ML) student and aspiring Web Developer with hands-on experience building production-quality Android and React applications. Proficient in Kotlin/Jetpack Compose, React/TypeScript, and Gemini AI integration.",
-  cta: {
-    primary: { label: "VIEW MY WORK →", href: "#projects" },
-    secondary: { label: "DOWNLOAD RESUME ↓", href: "/resume.pdf" },
-  },
-};
-
-export const ABOUT_DATA = {
-  statement: [
-    "CRAFTING INTUITIVE EXPERIENCES.",
-    "INTEGRATING GEMINI AI.",
-    "BUILDING PRODUCTION APPS.",
-  ],
-  bio: [
-    "Motivated 2nd-year B.Tech CSE (AI & ML) student and aspiring Web Developer based in Kalyani, India, with hands-on experience building production-quality Android and React applications.",
-    "Proficient across Kotlin/Jetpack Compose and React/TypeScript ecosystems. Passionate about crafting intuitive user experiences with modern UI frameworks, integrating AI-powered features via Gemini AI, and writing clean, maintainable code.",
-    "Eager to contribute to practical, high-impact projects and continuously strengthen technical problem-solving in the software engineering industry.",
-  ],
-  principles: [
-    { number: "01", label: "LEARN" },
-    { number: "02", label: "BUILD" },
-    { number: "03", label: "EXPERIMENT" },
-    { number: "04", label: "DELIVER" },
+  kicker: "B.Tech CSE (AI & ML) · Web & Android Developer",
+  titleLead: "I build production-ready",
+  titleHighlight:
+    "web, Android, and Gemini AI experiences that feel effortless.",
+  description:
+    "Motivated 2nd-year B.Tech CSE (AI & ML) student based in Kalyani, India. Proficient across React 19/TypeScript and Kotlin/Jetpack Compose ecosystems, integrating intelligent features with the Gemini AI SDK.",
+  metaRows: [
+    { label: "Location", value: "Kalyani, IN (Remote OK)" },
+    { label: "Education", value: "B.Tech CSE (AI & ML) · 2nd Yr" },
+    { label: "Status", value: "Open for Internships & Projects", accent: true },
+    { label: "Focus", value: "Web, Android & Gemini AI" },
   ],
 };
 
-export const SKILLS_DATA = {
-  heading: "TECHNICAL SKILLS",
-  subheading: "Technologies, frameworks, and tools from my production and academic projects.",
-  categories: [
-    {
-      title: "Programming Languages",
-      skills: [
-        "Python",
-        "Java",
-        "C",
-        "Kotlin",
-        "TypeScript",
-        "JavaScript",
-        "HTML5",
-        "CSS3",
-      ],
-    },
-    {
-      title: "Frameworks & Libraries",
-      skills: [
-        "React 19",
-        "Jetpack Compose",
-        "Material Design 3",
-        "Tailwind CSS",
-        "Framer Motion",
-      ],
-    },
-    {
-      title: "Tools & Platforms",
-      skills: [
-        "Vite",
-        "Node.js",
-        "Firebase",
-        "Git / GitHub",
-        "Android Studio",
-        "Express.js",
-      ],
-    },
-    {
-      title: "APIs & Data",
-      skills: [
-        "Gemini AI SDK",
-        "REST APIs",
-        "Room DB",
-        "Retrofit",
-        "OkHttp",
-      ],
-    },
+export type StackTabKey = "frontend" | "android" | "backend";
+
+export const STACK_TABS: { key: StackTabKey; label: string }[] = [
+  { key: "frontend", label: "Frontend" },
+  { key: "android", label: "Android" },
+  { key: "backend", label: "Backend & AI" },
+];
+
+export const STACK_DATA: Record<StackTabKey, string[]> = {
+  frontend: [
+    "React 19",
+    "TypeScript",
+    "Next.js",
+    "Tailwind CSS 4",
+    "Framer Motion",
+    "Vite",
+    "JavaScript",
+    "HTML5 / CSS3",
+  ],
+  android: [
+    "Kotlin",
+    "Jetpack Compose",
+    "Material Design 3",
+    "Room DB",
+    "Retrofit",
+    "OkHttp",
+    "Android Studio",
+  ],
+  backend: [
+    "Gemini AI SDK",
+    "Python",
+    "Java",
+    "C",
+    "Node.js",
+    "Express.js",
+    "Firebase",
+    "REST APIs",
+    "Git / GitHub",
   ],
 };
 
-export const PROJECTS_DATA = [
+export interface ProjectCaseStudy {
+  id: "scholar" | "interview" | "taskmanager";
+  featured?: boolean;
+  topbarLabel: string;
+  metaLeft: string;
+  metaRight: string;
+  title: string;
+  summary: string;
+  chips: string[];
+  drawerMeta: string;
+  stack: string[];
+  problem: string;
+  approach: string;
+  outcome: string;
+  liveUrl: string;
+  sourceUrl: string;
+}
+
+export const PROJECTS_DATA: ProjectCaseStudy[] = [
   {
-    id: "scholar-ai",
-    number: "01",
-    title: "ScholarAI — AI-Powered Research Knowledge Manager",
-    description:
-      "An academic research management platform featuring an intelligent inbox for paper triage, topic tracking dashboards, interactive SVG knowledge graphs, and an integrated AI research assistant to extract key concepts and summaries.",
-    features: [
-      "Intelligent inbox for paper triage",
-      "Topic tracking dashboards",
-      "Interactive SVG-based knowledge graphs",
-      "Integrated Gemini AI research assistant",
-      "Automated key concept & summary extraction",
+    id: "scholar",
+    featured: true,
+    topbarLabel: "scholar-ai / knowledge-graph.tsx",
+    metaLeft: "2026 · WEB APP & AI",
+    metaRight: "REACT 19 + GEMINI AI SDK",
+    title: "ScholarAI — Research Knowledge Manager",
+    summary:
+      "Academic research management platform featuring an intelligent inbox for paper triage, topic tracking dashboards, interactive SVG knowledge graphs, and an integrated Gemini AI research assistant.",
+    chips: ["React 19", "TypeScript", "Tailwind CSS 4", "Gemini AI SDK"],
+    drawerMeta: "2026 · WEB PLATFORM · GEMINI AI",
+    stack: [
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS 4",
+      "Gemini AI SDK",
+      "SVG Graphs",
     ],
-    tags: ["React 19", "TypeScript", "Vite", "Tailwind CSS 4", "Gemini AI SDK"],
+    problem:
+      "Students and researchers face heavy cognitive overload when triaging academic papers across scattered bookmarks, tracking interconnected topics, and extracting core insights quickly.",
+    approach:
+      "Built a responsive workspace in React 19 and TypeScript featuring an intelligent paper-triage inbox, topic progress dashboards, custom interactive SVG knowledge graphs, and an embedded Gemini AI assistant for automated concept and summary extraction.",
+    outcome:
+      "Delivered a unified research workflow that accelerates literature review, visualizes topic connections clearly, and showcases modern front-end architecture paired with Gemini AI.",
     liveUrl: "https://github.com/saikatdeb704-cmyk",
     sourceUrl: "https://github.com/saikatdeb704-cmyk",
-    details: {
-      overview:
-        "Built an academic research management platform using React 19, TypeScript, Vite, Tailwind CSS 4, and the Gemini AI SDK. Designed to streamline how researchers and students organize, analyze, and synthesize scholarly literature.",
-      problem:
-        "Researchers face massive cognitive overload triaging academic papers, managing disparate reading queues, and connecting conceptual nodes across complex studies.",
-      solution:
-        "Engineered an all-in-one web platform with an automated triage inbox, topic progress dashboards, interactive SVG knowledge visualizers, and a context-aware Gemini AI assistant.",
-      technologies: [
-        "React 19",
-        "TypeScript",
-        "Vite",
-        "Tailwind CSS 4",
-        "Gemini AI SDK",
-      ],
-    },
   },
   {
-    id: "mock-interview-platform",
-    number: "02",
+    id: "interview",
+    topbarLabel: "mock-interview · ai-evaluator",
+    metaLeft: "2026 · CONVERSATIONAL AI",
+    metaRight: "REAL-TIME FEEDBACK",
     title: "AI-Powered Mock Interview Platform",
-    description:
-      "An interactive technical interview simulator featuring real-time conversational AI that generates role-specific interview questions, analyzes responses, and provides detailed critique on communication and technical accuracy.",
-    features: [
-      "Real-time conversational AI interviewer",
-      "Role-specific dynamic question generation",
-      "Instant response evaluation & scoring",
-      "Communication & technical accuracy feedback",
-      "Contextual state management & prompt engineering",
+    summary:
+      "Interactive technical interview simulator generating role-specific questions in real time, analyzing user responses, and providing detailed feedback on communication and technical accuracy.",
+    chips: ["React", "TypeScript", "Gemini AI SDK"],
+    drawerMeta: "2026 · INTERVIEW SIMULATOR · GEMINI AI",
+    stack: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Gemini AI SDK",
+      "Prompt Engineering",
     ],
-    tags: ["React", "TypeScript", "Tailwind CSS", "Gemini AI SDK"],
+    problem:
+      "Candidates preparing for technical roles rarely get realistic, adaptive mock interviews with structured critique covering both technical depth and communication clarity.",
+    approach:
+      "Engineered conversational context state management and tailored prompt pipelines using the Gemini AI SDK so the interviewer adapts dynamically to the candidate's target role and prior answers.",
+    outcome:
+      "Provides realistic end-to-end interview practice with instant, actionable scoring across technical accuracy and communication.",
     liveUrl: "https://github.com/saikatdeb704-cmyk",
     sourceUrl: "https://github.com/saikatdeb704-cmyk",
-    details: {
-      overview:
-        "Developed an interactive technical interview simulator using React, TypeScript, Tailwind CSS, and the Gemini AI SDK for realistic candidate preparation.",
-      problem:
-        "Job seekers rarely have access to realistic technical interview practice with personalized, actionable feedback on their answers and communication style.",
-      solution:
-        "Implemented robust state management for conversational context along with prompt engineering to deliver realistic AI interviewers that dynamically adapt to the user's answers.",
-      technologies: [
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "Gemini AI SDK",
-      ],
-    },
   },
   {
-    id: "personal-task-manager",
-    number: "03",
-    title: "Personal Task Manager (Android App)",
-    description:
-      "A full-featured, production-grade Android task management application built with Kotlin, Jetpack Compose, Material Design 3, Room DB, and Firebase for offline-first productivity.",
-    features: [
-      "Complete CRUD workflows",
-      "Intelligent recurring-task scheduling",
-      "Advanced filtering and multi-sort criteria",
-      "Room DB persistent local storage",
-      "Real-time analytics and progress dashboards",
+    id: "taskmanager",
+    topbarLabel: "task-manager · jetpack-compose",
+    metaLeft: "2025 · ANDROID APP",
+    metaRight: "OFFLINE-FIRST · ROOM DB",
+    title: "Personal Task Manager (Android)",
+    summary:
+      "Full-featured, production-grade Android task management application built with Kotlin, Jetpack Compose, Material Design 3, Room DB, and Firebase.",
+    chips: ["Kotlin", "Jetpack Compose", "Room DB"],
+    drawerMeta: "2025 · ANDROID APPLICATION · KOTLIN",
+    stack: [
+      "Kotlin",
+      "Jetpack Compose",
+      "Material Design 3",
+      "Room DB",
+      "Firebase",
+      "Android Studio",
     ],
-    tags: ["Kotlin", "Jetpack Compose", "Material Design 3", "Room DB", "Firebase"],
+    problem:
+      "Mobile productivity tools often break offline or lack flexible recurring-task scheduling paired with clean, responsive local analytics.",
+    approach:
+      "Architected an offline-first Android app using Room DB for persistent local storage, Jetpack Compose with Material Design 3 for reactive UI, complete CRUD workflows, multi-criteria filtering/sorting, and Firebase integration.",
+    outcome:
+      "Delivers reliable offline task execution, intelligent recurring schedules, and real-time productivity analytics dashboards in a polished native experience.",
     liveUrl: "https://github.com/saikatdeb704-cmyk",
     sourceUrl: "https://github.com/saikatdeb704-cmyk",
-    details: {
-      overview:
-        "Developed a full-featured, production-grade Android task management application using Kotlin, Jetpack Compose, Material Design 3, Room DB, and Firebase.",
-      problem:
-        "Mobile users need task managers that work completely offline without losing sync, with flexible recurring intervals and clear visual analytics of their habits.",
-      solution:
-        "Architected an offline-first Android application leveraging Room DB for local persistence, Jetpack Compose for reactive UI, and Firebase for cloud backup and analytics.",
-      technologies: [
-        "Kotlin",
-        "Jetpack Compose",
-        "Material Design 3",
-        "Room DB",
-        "Firebase",
-        "Android Studio",
-      ],
-    },
   },
 ];
 
 export const JOURNEY_DATA = [
   {
     year: "2025",
-    title: "START & FOUNDATION",
+    title: "Start & Foundation",
     description:
-      "Started B.Tech journey in Computer Science & Engineering (AI & ML). Built core foundations in C, Python, and Data Structures & Algorithms.",
+      "Commenced B.Tech in Computer Science & Engineering (AI & ML). Built core programming foundations in C, Python, Java, and Data Structures & Algorithms.",
+    tag: "B.Tech CSE (AI & ML)",
   },
   {
     year: "2026",
-    title: "BUILD & EXPLORE",
+    title: "Build & Explore",
     description:
-      "Current 2nd-year focus: Building production Android apps (Kotlin, Jetpack Compose) and modern React 19/TypeScript platforms with Gemini AI SDK integrations.",
+      "Current 2nd-year focus: Shipped ScholarAI, AI-Powered Mock Interview Platform, and Personal Task Manager (Kotlin/Jetpack Compose) integrating React 19, TypeScript, and Gemini AI SDK.",
+    tag: "Web, Android & AI",
   },
   {
     year: "2027",
-    title: "DEEPEN & SPECIALIZE",
+    title: "Deepen & Specialize",
     description:
-      "Focus on advanced full-stack systems, machine learning pipelines, scalable architectures, and competitive hackathons.",
+      "Advancing full-stack systems, machine learning pipelines, DBMS, operating systems, computer networks, and competitive hackathons.",
+    tag: "Systems & ML",
   },
   {
     year: "2028",
-    title: "INTERNSHIPS & LEVEL UP",
+    title: "Internships & Level Up",
     description:
-      "Targeting software engineering internships, industry collaboration, open-source contributions, and high-impact distributed systems.",
+      "Targeting software engineering internships, industry collaboration, open-source contributions, and scalable distributed architectures.",
+    tag: "Industry Experience",
   },
   {
     year: "2029",
-    title: "GRADUATION & NEXT CHAPTER",
+    title: "Graduation & Next Chapter",
     description:
-      "Graduating B.Tech CSE (AI & ML) and stepping into professional software engineering and product innovation.",
+      "Graduating B.Tech CSE (AI & ML) and stepping into full-time software engineering and AI-powered product development.",
+    tag: "B.Tech Graduate",
   },
-];
-
-export const LEARNING_DATA = [
-  "React 19",
-  "Jetpack Compose",
-  "Gemini AI SDK",
-  "Kotlin",
-  "TypeScript",
-  "Room DB",
-  "Data Structures & Algorithms",
-  "Object-Oriented Programming",
-  "Database Management Systems",
-  "Computer Networks",
-  "Operating Systems",
-  "Full-Stack Web Development",
 ];
 
 export const COURSEWORK_DATA = [
@@ -271,41 +271,9 @@ export const COURSEWORK_DATA = [
   "Computer Networks",
 ];
 
-export const ACHIEVEMENTS_DATA = [
-  {
-    title: "ScholarAI Platform",
-    org: "Production Web App",
-    icon: "projects",
-  },
-  {
-    title: "Android Task Manager",
-    org: "Production Jetpack Compose App",
-    icon: "projects",
-  },
-  {
-    title: "AI Interview Simulator",
-    org: "Gemini AI Hack & Build",
-    icon: "hackathon",
-  },
-  {
-    title: "B.Tech CSE (AI & ML)",
-    org: "2nd Year Undergraduate",
-    icon: "certificate",
-  },
-];
-
-export const GITHUB_DATA = {
-  username: "saikatdeb704-cmyk",
-  stats: {
-    projects: "10+",
-    technologies: "15+",
-    contributions: "200+",
-  },
-};
-
 export const CONTACT_DATA = {
-  heading: ["HAVE AN IDEA?", "LET'S BUILD IT."],
+  kicker: "03 / NEXT STEP",
+  heading: "Have a project, internship, or role in mind?",
   subtitle:
-    "2nd-year B.Tech CSE (AI & ML) student based in Kalyani, India. Available for software internships, project collaborations, and discussions.",
+    "2nd-year B.Tech CSE (AI & ML) student based in Kalyani, India. Available for software internships, project collaborations, and engineering discussions.",
 };
-

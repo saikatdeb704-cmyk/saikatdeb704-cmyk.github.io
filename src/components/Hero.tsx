@@ -1,115 +1,129 @@
 "use client";
 
-import { HERO_DATA, SOCIAL_LINKS } from "@/lib/constants";
-import HeroCanvas from "./HeroCanvas";
-import MagneticButton from "./MagneticButton";
+import { useEffect, useState } from "react";
+import {
+  HERO_DATA,
+  SOCIAL_LINKS,
+  STACK_DATA,
+  STACK_TABS,
+  type StackTabKey,
+} from "@/lib/constants";
 
-export default function Hero() {
+interface HeroProps {
+  copiedEmail: boolean;
+  onCopyEmail: () => void;
+}
+
+export default function Hero({ copiedEmail, onCopyEmail }: HeroProps) {
+  const [liveClock, setLiveClock] = useState("--:-- IST");
+  const [activeStack, setActiveStack] = useState<StackTabKey>("frontend");
+
+  useEffect(() => {
+    const updateClock = () => {
+      const timeStr = new Date().toLocaleTimeString("en-IN", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+        timeZone: "Asia/Kolkata",
+      });
+      setLiveClock(`${timeStr} IST`);
+    };
+
+    updateClock();
+    const timer = setInterval(updateClock, 30000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050505] pt-24 lg:pt-28 pb-16"
-    >
-      <HeroCanvas />
+    <section className="hero-bento">
+      <div className="glass-panel hero-main reveal">
+        <div>
+          <div className="hero-kicker mono">
+            <span>{HERO_DATA.kicker}</span>
+            <span aria-hidden="true">·</span>
+            <span>{liveClock}</span>
+          </div>
 
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent z-[1]" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]/50 z-[1]" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full py-10 lg:py-16">
-        <div className="max-w-3xl">
-          {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[0.98] tracking-tight mb-8">
-            {HERO_DATA.headline.map((line, i) => (
-              <span
-                key={i}
-                className="block animate-slide-up opacity-0"
-                style={{
-                  animationDelay: `${i * 150 + 200}ms`,
-                  animationFillMode: "forwards",
-                }}
-              >
-                {line}
-              </span>
-            ))}
+          <h1 className="hero-title">
+            {HERO_DATA.titleLead} <span>{HERO_DATA.titleHighlight}</span>
           </h1>
 
-          {/* Subtitle */}
-          <p
-            className="text-sm lg:text-base text-gray-400 tracking-widest uppercase mb-6 animate-slide-up opacity-0"
-            style={{ animationDelay: "700ms", animationFillMode: "forwards" }}
-          >
-            {HERO_DATA.subtitle}
-          </p>
+          <p className="hero-desc">{HERO_DATA.description}</p>
+        </div>
 
-          {/* Intro paragraph */}
-          <p
-            className="text-base lg:text-lg text-gray-500 max-w-xl leading-relaxed mb-10 animate-slide-up opacity-0"
-            style={{ animationDelay: "850ms", animationFillMode: "forwards" }}
+        <div className="hero-actions">
+          <a href="#work" className="btn-solid">
+            Explore Selected Work ↓
+          </a>
+          <a
+            href={SOCIAL_LINKS.resume}
+            download="Saikat_Deb_Sharma_Resume.pdf"
+            className="btn-outline"
           >
-            {HERO_DATA.intro}
-          </p>
-
-          {/* CTA buttons */}
-          <div
-            className="flex flex-col sm:flex-row gap-4 mb-12 animate-slide-up opacity-0"
-            style={{ animationDelay: "1000ms", animationFillMode: "forwards" }}
+            Download Resume ↓
+          </a>
+          <button
+            type="button"
+            className="btn-outline"
+            onClick={onCopyEmail}
           >
-            <MagneticButton
-              href={HERO_DATA.cta.primary.href}
-              className="border border-white text-white px-8 py-4 text-sm tracking-widest hover:bg-white hover:text-black font-medium justify-center"
-            >
-              {HERO_DATA.cta.primary.label}
-            </MagneticButton>
-            <MagneticButton
-              href={HERO_DATA.cta.secondary.href}
-              download
-              className="border border-white/20 text-gray-400 px-8 py-4 text-sm tracking-widest hover:border-white/50 hover:text-white justify-center"
-            >
-              {HERO_DATA.cta.secondary.label}
-            </MagneticButton>
-          </div>
-
-          {/* Social links */}
-          <div
-            className="flex items-center gap-6 animate-slide-up opacity-0"
-            style={{ animationDelay: "1150ms", animationFillMode: "forwards" }}
-          >
-            <a
-              href={SOCIAL_LINKS.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-gray-600 hover:text-white transition-colors duration-300 tracking-widest uppercase"
-              aria-label="GitHub profile"
-            >
-              GitHub
-            </a>
-            <span className="text-gray-800">•</span>
-            <a
-              href={SOCIAL_LINKS.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-gray-600 hover:text-white transition-colors duration-300 tracking-widest uppercase"
-              aria-label="LinkedIn profile"
-            >
-              LinkedIn
-            </a>
-            <span className="text-gray-800">•</span>
-            <a
-              href={`mailto:${SOCIAL_LINKS.email}`}
-              className="text-xs text-gray-600 hover:text-white transition-colors duration-300 tracking-widest uppercase"
-              aria-label="Send email"
-            >
-              Email
-            </a>
-          </div>
+            {copiedEmail ? "Copied to clipboard ✓" : "Copy Email"}
+          </button>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-        <div className="w-[1px] h-12 bg-gradient-to-b from-transparent via-gray-600 to-transparent" />
-      </div>
+      <aside className="hero-side">
+        <div className="glass-panel meta-card reveal">
+          {HERO_DATA.metaRows.map((row) => (
+            <div key={row.label} className="meta-row">
+              <span>{row.label}</span>
+              <span style={row.accent ? { color: "var(--accent)" } : undefined}>
+                {row.value}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <div className="glass-panel stack-card reveal">
+          <div className="tab-header">
+            <span
+              className="mono"
+              style={{ fontSize: "0.76rem", color: "var(--text-muted)" }}
+            >
+              TOOLKIT
+            </span>
+            <div
+              className="tab-group"
+              role="tablist"
+              aria-label="Tech Stack Categories"
+            >
+              {STACK_TABS.map((tab) => {
+                const isSelected = activeStack === tab.key;
+                return (
+                  <button
+                    key={tab.key}
+                    type="button"
+                    role="tab"
+                    aria-selected={isSelected}
+                    className={`tab-btn ${isSelected ? "active" : ""}`}
+                    onClick={() => setActiveStack(tab.key)}
+                  >
+                    {tab.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="chip-wrap">
+            {STACK_DATA[activeStack].map((item) => (
+              <span key={item} className="chip">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </aside>
     </section>
   );
 }

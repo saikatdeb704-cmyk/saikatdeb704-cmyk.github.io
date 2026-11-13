@@ -1,170 +1,82 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { NAV_LINKS, SITE_CONFIG, SOCIAL_LINKS } from "@/lib/constants";
+import {
+  NAV_LINKS,
+  SITE_CONFIG,
+  SOCIAL_LINKS,
+  THEMES,
+  type ThemeId,
+} from "@/lib/constants";
 
-export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
+interface NavbarProps {
+  theme: ThemeId;
+  onSelectTheme: (theme: ThemeId) => void;
+  onOpenCommandPalette: () => void;
+}
 
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    if (isMobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isMobileOpen]);
-
-  const handleNavClick = (href: string) => {
-    setIsMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
+export default function Navbar({
+  theme,
+  onSelectTheme,
+  onOpenCommandPalette,
+}: NavbarProps) {
   return (
-    <>
+    <header className="site-header">
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? "bg-[#050505]/80 backdrop-blur-xl border-b border-white/5"
-            : "bg-transparent"
-        }`}
-        role="navigation"
-        aria-label="Main navigation"
+        className="nav-bar glass-panel"
+        aria-label="Primary Navigation"
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+        <a href="#top" className="nav-identity">
+          <span className="status-indicator" aria-hidden="true" />
+          <span>{SITE_CONFIG.name}</span>
+        </a>
+
+        <ul className="nav-center">
+          {NAV_LINKS.map((link) => (
+            <li key={link.href}>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))}
+          <li>
             <a
-              href="#home"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick("#home");
-              }}
-              className="font-mono text-base lg:text-lg font-bold text-white tracking-widest hover:text-gray-300 transition-colors uppercase"
+              href={SOCIAL_LINKS.resume}
+              download="Saikat_Deb_Sharma_Resume.pdf"
             >
-              SAIKAT DEB SHARMA
+              Resume ↓
             </a>
+          </li>
+        </ul>
 
-            <div className="hidden lg:flex items-center gap-8">
-              {NAV_LINKS.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => {
-                    if (link.href.startsWith("#")) {
-                      e.preventDefault();
-                      handleNavClick(link.href);
-                    }
-                  }}
-                  target={link.href.startsWith("#") ? undefined : "_blank"}
-                  rel={link.href.startsWith("#") ? undefined : "noopener noreferrer"}
-                  download={link.href.endsWith(".pdf")}
-                  className={`text-sm tracking-wide uppercase transition-colors duration-300 ${
-                    link.href.endsWith(".pdf")
-                      ? "text-white border border-white/20 px-3 py-1 hover:bg-white hover:text-black font-mono text-xs"
-                      : "text-gray-400 hover:text-white"
-                  }`}
-                >
-                  {link.label} {link.href.endsWith(".pdf") ? "↓" : ""}
-                </a>
-              ))}
-            </div>
-
-            <div className="hidden lg:block">
-              <a
-                href={`mailto:${SOCIAL_LINKS.email}`}
-                className="text-sm border border-white/20 text-white px-5 py-2.5 hover:bg-white hover:text-black transition-all duration-300 tracking-wide"
-              >
-                LET&apos;S CONNECT ↗
-              </a>
-            </div>
-
-            <button
-              className="lg:hidden relative w-8 h-8 flex items-center justify-center z-50"
-              onClick={() => setIsMobileOpen(!isMobileOpen)}
-              aria-label="Toggle navigation menu"
-              aria-expanded={isMobileOpen}
-            >
-              <div className="flex flex-col gap-1.5">
-                <span
-                  className={`block w-6 h-[1.5px] bg-white transition-all duration-300 origin-center ${
-                    isMobileOpen ? "rotate-45 translate-y-[4.5px]" : ""
-                  }`}
-                />
-                <span
-                  className={`block w-6 h-[1.5px] bg-white transition-all duration-300 ${
-                    isMobileOpen ? "opacity-0" : ""
-                  }`}
-                />
-                <span
-                  className={`block w-6 h-[1.5px] bg-white transition-all duration-300 origin-center ${
-                    isMobileOpen ? "-rotate-45 -translate-y-[4.5px]" : ""
-                  }`}
-                />
-              </div>
-            </button>
+        <div className="nav-controls">
+          <div
+            className="theme-pills"
+            role="group"
+            aria-label="Color Palette Switcher"
+          >
+            {THEMES.map((option) => (
+              <button
+                key={option.id}
+                type="button"
+                className={`theme-dot ${theme === option.id ? "active" : ""}`}
+                onClick={() => onSelectTheme(option.id)}
+                title={option.label}
+                style={{ background: option.swatch }}
+                aria-label={`${option.label} Theme`}
+                aria-pressed={theme === option.id}
+              />
+            ))}
           </div>
+
+          <button
+            type="button"
+            className="cmd-btn"
+            onClick={onOpenCommandPalette}
+            aria-label="Open Command Menu"
+          >
+            <span>Menu</span>
+            <span className="kbd">⌘K</span>
+          </button>
         </div>
       </nav>
-
-      {/* Mobile Menu */}
-      <div
-        className={`fixed inset-0 z-40 bg-[#050505]/98 backdrop-blur-2xl transition-all duration-500 lg:hidden ${
-          isMobileOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        }`}
-      >
-        <div className="flex flex-col items-center justify-center h-full gap-8">
-          {NAV_LINKS.map((link, i) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => {
-                if (link.href.startsWith("#")) {
-                  e.preventDefault();
-                  handleNavClick(link.href);
-                } else {
-                  setIsMobileOpen(false);
-                }
-              }}
-              target={link.href.startsWith("#") ? undefined : "_blank"}
-              rel={link.href.startsWith("#") ? undefined : "noopener noreferrer"}
-              download={link.href.endsWith(".pdf")}
-              className={`text-2xl text-white tracking-widest uppercase transition-all duration-500 hover:text-gray-400 ${
-                isMobileOpen
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
-              }`}
-              style={{ transitionDelay: `${i * 80 + 200}ms` }}
-            >
-              {link.label} {link.href.endsWith(".pdf") ? "↓" : ""}
-            </a>
-          ))}
-          <a
-            href={`mailto:${SOCIAL_LINKS.email}`}
-            className={`mt-4 text-sm border border-white/20 text-white px-6 py-3 hover:bg-white hover:text-black transition-all duration-500 tracking-wide ${
-              isMobileOpen
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
-            }`}
-            style={{ transitionDelay: "700ms" }}
-          >
-            LET&apos;S CONNECT ↗
-          </a>
-        </div>
-      </div>
-    </>
+    </header>
   );
 }

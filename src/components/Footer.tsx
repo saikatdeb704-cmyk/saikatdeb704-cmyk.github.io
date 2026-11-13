@@ -1,95 +1,41 @@
-import { SITE_CONFIG, NAV_LINKS, SOCIAL_LINKS } from "@/lib/constants";
+"use client";
 
-export default function Footer() {
+import { useSyncExternalStore } from "react";
+import { SITE_CONFIG } from "@/lib/constants";
+
+interface FooterProps {
+  onOpenCommandPalette: () => void;
+}
+
+const emptySubscribe = () => () => {};
+
+export default function Footer({ onOpenCommandPalette }: FooterProps) {
+  const year = useSyncExternalStore(
+    emptySubscribe,
+    () => new Date().getFullYear(),
+    () => 2026
+  );
+
   return (
-    <footer className="py-16 lg:py-20 bg-[#050505] border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
-          {/* Brand */}
-          <div>
-            <h3 className="text-xl font-bold text-white tracking-tight mb-2">
-              {SITE_CONFIG.name.toUpperCase()}
-            </h3>
-            <p className="text-sm text-gray-500">
-              BTech CSE (AI/ML) • Developer • AI Enthusiast
-            </p>
-          </div>
-
-          {/* Navigation */}
-          <div>
-            <h4 className="font-mono text-xs text-gray-500 tracking-widest uppercase mb-4">
-              Navigation
-            </h4>
-            <div className="flex flex-col gap-2">
-              {["Home", "About", "Skills", "Projects", "Journey", "Contact"].map((link) => (
-                <a
-                  key={link}
-                  href={`#${link.toLowerCase()}`}
-                  className="text-sm text-gray-400 hover:text-white transition-colors duration-300"
-                >
-                  {link}
-                </a>
-              ))}
-              <a
-                href="/resume.pdf"
-                download
-                className="text-sm text-white/90 hover:text-white font-mono tracking-wider transition-colors duration-300 pt-1"
-              >
-                Resume (PDF) ↓
-              </a>
-            </div>
-          </div>
-
-          {/* Social */}
-          <div>
-            <h4 className="font-mono text-xs text-gray-500 tracking-widest uppercase mb-4">
-              Connect
-            </h4>
-            <div className="flex flex-col gap-2">
-              <a
-                href={SOCIAL_LINKS.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-gray-400 hover:text-white transition-colors duration-300"
-              >
-                GitHub
-              </a>
-              <a
-                href={SOCIAL_LINKS.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-gray-400 hover:text-white transition-colors duration-300"
-              >
-                LinkedIn
-              </a>
-              <a
-                href={`mailto:${SOCIAL_LINKS.email}`}
-                className="text-sm text-gray-400 hover:text-white transition-colors duration-300"
-              >
-                Email
-              </a>
-              <a
-                href={`tel:${SOCIAL_LINKS.phone}`}
-                className="text-sm text-gray-500 hover:text-white transition-colors duration-300 font-mono"
-              >
-                {SOCIAL_LINKS.phone}
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom */}
-        <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-gray-600 font-mono tracking-wider">
-            © 2026 Saikat Deb Sharma. Built with curiosity & code.
-          </p>
-          <div className="flex items-center gap-1">
-            <span className="w-1.5 h-1.5 bg-green-500/60 rounded-full animate-pulse" />
-            <span className="text-xs text-gray-600 font-mono">
-              Available for collaboration
-            </span>
-          </div>
-        </div>
+    <footer className="container site-footer">
+      <span>
+        © {year} {SITE_CONFIG.name}. Built with Next.js, CSS tokens &amp;
+        precision.
+      </span>
+      <div className="footer-links">
+        <a href="#top">Back to top ↑</a>
+        <button
+          type="button"
+          onClick={onOpenCommandPalette}
+          style={{
+            background: "none",
+            border: "none",
+            color: "inherit",
+            cursor: "pointer",
+          }}
+        >
+          Press <span className="kbd">⌘K</span>
+        </button>
       </div>
     </footer>
   );
